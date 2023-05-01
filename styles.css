@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+.background {
+    height: 100vh;
+    width: 100vw;
+    background-color: khaki;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.phone {
+    height: 555px;
+    width: 270px;
+    background-color: black;
+    border-radius: 30px;
+    border: 3px solid rgb(77, 77, 77);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.screen{
+    height: 545px;
+    width: 260px;
+    background-color: black(77, 77, 77);
+    border-radius: 20px;
+}
+.app {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputscr{
+    flex-grow: 1;
+    width: 260px;
+    height: 180px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: white;
+    height: 39%;
+}
+
+.inputscr span {
+    margin: 10px;
+    font-size: 40px;
+    justify-self: flex-end;
+}
+
+.keys {
+    flex-grow: 2;
+    width: 260px;
+    height: 365px;
+    display: grid;
+    grid-template-areas:
+    'o1 o2 o3 p1'
+    'n7 n8 n9 p2'
+    'n4 n5 n6 p3'
+    'n1 n2 n3 p4'
+    'n0 n0 nd p5';
+}
+button, input[type="submit"], input[type="reset"] {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+
+.btn {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.btn:active { 
+    opacity: 0.5;
+}
+
+.btnCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zer {
+    grid-area: n0;
+}
+.zero {
+    width: 115px;
+    height: 55px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+.opr {
+    background-color:#f69906;
+    color: white;
+}
+.opt {
+    background-color: #9f9f9f;
+}
+.num, .comma, .numZero{
+    background-color: #313131;
+    color: white;
+}
