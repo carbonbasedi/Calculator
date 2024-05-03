@@ -14,11 +14,11 @@ let sign = "";
 let resultValue = 0;
 let hasSign = false;
 
-for(let i = 0;i<numbers.length;i++){
-    numbers[i].addEventListener('click',(e)=> {
+for (let i = 0; i < numbers.length; i++) {
+    numbers[i].addEventListener('click', (e) => {
         let atr = e.target.getAttribute('value');
         if (hasSign === true) {
-            if(isSecondValue === false){
+            if (isSecondValue === false) {
                 getSecondValue(atr);
             }
         } else {
@@ -31,19 +31,17 @@ function getFirstValue(el) {
     result.innerHTML = "";
     firstValue += el;
     result.innerHTML = firstValue;
-    firstValue = +firstValue;
 }
 
 function getSecondValue(el) {
-    if (firstValue != "" && sign != "") {
+    if (sign !== "" && !isSecondValue) {
         secondValue += el;
         result.innerHTML = secondValue;
-        secondValue = +secondValue;
     }
 }
 
 function getSign() {
-    for(let i = 0;i<signs.length;i++){
+    for (let i = 0; i < signs.length; i++) {
         signs[i].addEventListener('click', (e) => {
             sign = e.target.getAttribute('value');
             isFirstValue = true;
@@ -56,13 +54,13 @@ getSign();
 equals.addEventListener('click', () => {
     result.innerHTML = '';
     if (sign === '+') {
-        resultValue = firstValue + secondValue;
+        resultValue = parseFloat(firstValue) + parseFloat(secondValue);
     } else if (sign === '-') {
-        resultValue = firstValue - secondValue;
-    } else if ( sign === 'x') {
-        resultValue = firstValue * secondValue;
+        resultValue = parseFloat(firstValue) - parseFloat(secondValue);
+    } else if (sign === 'x') {
+        resultValue = parseFloat(firstValue) * parseFloat(secondValue);
     } else if (sign === '/') {
-        resultValue = firstValue / secondValue;
+        resultValue = parseFloat(firstValue) / parseFloat(secondValue);
     }
     result.innerHTML = resultValue;
     firstValue = resultValue;
@@ -73,36 +71,34 @@ equals.addEventListener('click', () => {
 
 
 function checkResultLength() {
-    resultValue = resultValue.toString();
-    if (resultValue.length >=8) {
-        resultValue = parseFloat(resultValue).toFixed(5);
+    let temp = parseFloat(result.innerHTML);
+    if (temp.toString().length >= 8) {
+        resultValue = temp.toFixed(5);
         result.innerHTML = resultValue;
     }
 }
 
 negative.addEventListener('click', () => {
     result.innerHTML = "";
-    if (firstValue != '') {
-        resultValue = -firstValue;
-        firstValue =  resultValue;
-        result.innerHTML = resultValue;
+    if (firstValue !== '') {
+        firstValue = -parseFloat(firstValue);
+        result.innerHTML = firstValue;
     }
-    if (firstValue != '' && secondValue != '' && sign != '') {
-        resultValue = -resultValue;
-        result.innerHTML = resultValue;
+    if (firstValue !== '' && secondValue !== '') {
+        secondValue = -parseFloat(secondValue);
+        result.innerHTML = secondValue;
     }
 })
 
 percent.addEventListener('click', () => {
     result.innerHTML = "";
-    if (firstValue != '') {
-        resultValue = firstValue / 100;
-        firstValue =  resultValue;
-        resultValue.innerHTML = resultValue;
+    if (firstValue !== '') {
+        resultValue = parseFloat(firstValue) / 100;
+        result.innerHTML = resultValue;
     }
-    if (firstValue != '' && secondValue != '' && sign != '') {
-        resultValue = resultValue / 100;
-        resultValue.innerHTML = resultValue;
+    if (firstValue !== '' && secondValue !== '') {
+        resultValue = parseFloat(secondValue) / 100;
+        result.innerHTML = resultValue;
     }
 })
 
